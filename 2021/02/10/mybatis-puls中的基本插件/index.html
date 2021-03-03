@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>mybatis-puls插件-</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+
+<meta name="keywords" content="数据库,MYSQL,mybatis,mybatis-puls,">
+<meta name="description" content="mybatis-puls快速入门的基本插件">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+	<meta name="generator" content="Hexo 5.3.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										主页
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										文章
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										分类
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										标签
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										友情链接
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>CHENHUAYI</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">主页</a>
+        </li>
+        
+        <li>
+            <a href="/archives">文章</a>
+        </li>
+        
+        <li>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <a href="/links">友情链接</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/yichen199709">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/数据库">数据库</a></li>
+            
+            <li><a href="/tags/MYSQL">MYSQL</a></li>
+            
+            <li><a href="/tags/mybatis">mybatis</a></li>
+            
+            <li><a href="/tags/mybatis-puls">mybatis-puls</a></li>
+            
+            
+        </ul>
+        <h1>mybatis-puls插件</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">CHENHUAYI</a></span>
+                <p>2021-02-10 13:40:33</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <h1 id="mybatis-puls中的基本插件"><a href="#mybatis-puls中的基本插件" class="headerlink" title="mybatis-puls中的基本插件"></a>mybatis-puls中的基本插件</h1><h2 id="分页插件"><a href="#分页插件" class="headerlink" title="分页插件"></a>分页插件</h2><p><strong>在配置类中 配置这个插件 ，也就是在springboot容器中注入</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 分页插件</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Bean</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> PaginationInterceptor <span class="hljs-title">paginationInterceptor</span><span class="hljs-params">()</span> </span>&#123;<br>    <br>	<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> PaginationInterceptor();<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>在Mp-3.4版本后以及弃用这种配置 改为</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Bean</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> MybatisPlusInterceptor <span class="hljs-title">mybatisPlusInterceptor</span><span class="hljs-params">()</span> </span>&#123;<br>    <br>    MybatisPlusInterceptor interceptor = <span class="hljs-keyword">new</span> MybatisPlusInterceptor();<br>    <br>    interceptor.addInnerInterceptor(<span class="hljs-keyword">new</span> PaginationInnerInterceptor(DbType.MYSQL));<span class="hljs-comment">//DbType.MYSQL设置数据库类型</span><br>    <br>    <span class="hljs-keyword">return</span> interceptor;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="测试selectPage分页"><a href="#测试selectPage分页" class="headerlink" title="测试selectPage分页"></a>测试<strong>selectPage</strong>分页</h3><p>测试：最终通过page对象获取相关数据</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSelectPage</span><span class="hljs-params">()</span> </span>&#123;<br>       <span class="hljs-comment">//page对象是Mp中封装好的分页对象</span><br>       Page&lt;User&gt; page = <span class="hljs-keyword">new</span> Page&lt;&gt;(<span class="hljs-number">1</span>,<span class="hljs-number">5</span>);<span class="hljs-comment">//第一个参数是第几页，第二个参数是要查几条数据</span><br><br>       userMapper.selectPage(page, <span class="hljs-keyword">null</span>);<br><br>       page.getRecords().forEach(System.out::println);<br>       <span class="hljs-comment">//当执行分页查询后，page中会被添加一系列的分页数据，如：</span><br>       System.out.println(page.getCurrent());<span class="hljs-comment">//获取当前页数</span><br><br>       System.out.println(page.getPages());<span class="hljs-comment">//获取总页数</span><br><br>       System.out.println(page.getSize());<span class="hljs-comment">//每页显示记录数</span><br><br>       System.out.println(page.getTotal());<span class="hljs-comment">//总记录数</span><br><br>       System.out.println(page.hasNext());<span class="hljs-comment">//是否有下一页</span><br><br>       System.out.println(page.hasPrevious());<span class="hljs-comment">//是否有上一页</span><br><br>   &#125;<br></code></pre></td></tr></table></figure>
+<p><strong>测试selectMapsPage分页：结果集是Map</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSelectMapsPage</span><span class="hljs-params">()</span> </span>&#123;<br><br>    IPage&lt;Map&lt;String, Object&gt;&gt; page=<span class="hljs-keyword">new</span> Page&lt;Map&lt;String, Object&gt;&gt;(<span class="hljs-number">1</span>,<span class="hljs-number">5</span>);<span class="hljs-comment">//这里用的是IPage对象的，不是Page</span><br><br>    IPage&lt;Map&lt;String, Object&gt;&gt; mapIPage = userMapper.selectMapsPage( page,<span class="hljs-keyword">null</span>);<br><br>   <span class="hljs-comment">//注意：此行必须使用 mapIPage 获取记录列表，否则会有数据类型转换错误</span><br>   mapIPage.getRecords().forEach(System.out::println);<br><br>   System.out.println(page.getCurrent());<br>   System.out.println(page.getPages());<br>   System.out.println(page.getSize());<br>   System.out.println(page.getTotal());<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="逻辑删除插件"><a href="#逻辑删除插件" class="headerlink" title="逻辑删除插件"></a>逻辑删除插件</h2><p>添加注解，<strong>必须的</strong></p>
+<p><strong><font color=red>这里可以在数据库设置默认值，如默认值为0，代表没有删除</font></strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@TableLogic</span><br><span class="hljs-keyword">private</span> Integer deleted;<br></code></pre></td></tr></table></figure>
+
+
+<p><strong>application.properties</strong> 加入配置</p>
+<p>此为默认值，如果你的默认值和mp默认的一样,<strong>该配置可无</strong></p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">mybatis-plus.global-config.db-config.logic-delete-value</span>=<span class="hljs-string">1 </span><br><span class="hljs-meta">mybatis-plus.global-config.db-config.logic-not-delete-value</span>=<span class="hljs-string">0 </span><br></code></pre></td></tr></table></figure>
+
+
+<p>在 <strong>MybatisPlusConfig</strong> <strong>中注册</strong> <strong>Bean</strong></p>
+<p><strong><font color=red>mp-3.4之后可以不用配置</font></strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Bean</span><br> <span class="hljs-function"><span class="hljs-keyword">public</span> ISqlInjector <span class="hljs-title">sqlInjector</span><span class="hljs-params">()</span> </span>&#123;<br> <br>     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> LogicSqlInjector();<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="测试逻辑删除"><a href="#测试逻辑删除" class="headerlink" title="测试逻辑删除"></a><strong>测试逻辑删除</strong></h3><p>测试后发现，数据并没有被删除，deleted字段的值由0变成了1</p>
+<p>测试后分析打印的sql语句，是一条update</p>
+<p>注意：被删除数据的deleted 字段的值必须是 0，才能被选取出来执行逻辑删除的操作</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"> <span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 测试 逻辑删除</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testLogicDelete</span><span class="hljs-params">()</span> </span>&#123;<br>    <br>	<span class="hljs-keyword">int</span> result = userMapper.deleteById(<span class="hljs-number">1L</span>);<br>    <br>	System.out.println(result);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="测试逻辑删除后的查询"><a href="#测试逻辑删除后的查询" class="headerlink" title="测试逻辑删除后的查询"></a>测试逻辑删除后的查询</h3><p>MyBatis Plus中查询操作也会自动添加逻辑删除字段的判断</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 测试 逻辑删除后的查询：</span><br><span class="hljs-comment"> * 不包括被逻辑删除的记录</span><br><span class="hljs-comment"> */</span><br> <span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testLogicDeleteSelect</span><span class="hljs-params">()</span> </span>&#123;<br>         <br>     User user = <span class="hljs-keyword">new</span> User();<br>         <br>     List&lt;User&gt; users = userMapper.selectList(<span class="hljs-keyword">null</span>);<br>         <br>     users.forEach(System.out::println);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>当然有人会有疑问 ：这里我就是想查询逻辑删除后的数据怎么办 ？</p>
+<p>因为mp默认是查询不到逻辑删除的数据的，只要你配置了就不会查询到</p>
+<p>那么我们只能自己写xml去查询。</p>
+<h2 id="性能分析插件"><a href="#性能分析插件" class="headerlink" title="性能分析插件"></a>性能分析插件</h2><p>性能分析拦截器，用于输出每条 SQL 语句及其执行时间</p>
+<p>SQL 性能执行分析,开发环境使用，超过指定时间，停止运行。有助于发现问题</p>
+<h3 id="3-3以下老版本"><a href="#3-3以下老版本" class="headerlink" title="3.3以下老版本"></a>3.3以下老版本</h3><p><strong>配置插件</strong></p>
+<p>参数说明</p>
+<p>参数：<strong>maxTime</strong>： SQL 执行最大时长，超过自动停止运行，有助于发现问题。</p>
+<p>参数：<strong>format</strong>： SQL是否格式化，默认false。 </p>
+<p>在<strong>MybatisPlusConfig</strong> <strong>中配置</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">  <span class="hljs-comment">/**</span><br><span class="hljs-comment">    * SQL 执行性能分析插件</span><br><span class="hljs-comment">    * 开发环境使用，线上不推荐。 maxTime 指的是 sql 最大执行时长</span><br><span class="hljs-comment">    */</span><br><span class="hljs-meta">@Bean</span><br><span class="hljs-meta">@Profile(&#123;&quot;dev&quot;,&quot;test&quot;&#125;)</span><span class="hljs-comment">// 设置 dev test 环境开启</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> PerformanceInterceptor <span class="hljs-title">performanceInterceptor</span><span class="hljs-params">()</span> </span>&#123;<br>    <br>    PerformanceInterceptor performanceInterceptor = <span class="hljs-keyword">new</span> PerformanceInterceptor();<br>    <br>    performanceInterceptor.setMaxTime(<span class="hljs-number">100</span>);<span class="hljs-comment">//ms，超过此处设置的ms则sql不执行</span><br>    <br>    performanceInterceptor.setFormat(<span class="hljs-keyword">true</span>);<br>    <br>    <span class="hljs-keyword">return</span> performanceInterceptor;<br> &#125;<br></code></pre></td></tr></table></figure>
+<p><strong>Spring Boot</strong> <strong>中设置</strong>dev环境</p>
+<p>环境设置：dev、test、prod</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">spring.profiles.active</span>=<span class="hljs-string">dev</span><br></code></pre></td></tr></table></figure>
+
+
+<h3 id="3-3以上新版本"><a href="#3-3以上新版本" class="headerlink" title="3.3以上新版本"></a>3.3以上新版本</h3><p><strong>加入依赖</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>p6spy<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>p6spy<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>最新版本<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><strong>springboot配置文件中</strong></p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">spring.datasource.driver-class-name</span>=<span class="hljs-string">com.p6spy.engine.spy.P6SpyDriver</span><br><br><span class="hljs-meta">spring.datasource.url</span>= <span class="hljs-string">jdbc:p6spy:mysql://127.0.0.1:3306/mybatis-plus?serverTimezone=GMT%2B8</span><br></code></pre></td></tr></table></figure>
+<p><strong>创建spy.properties 配置：</strong></p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><code class="hljs properties"><span class="hljs-comment">#3.2.1以上使用</span><br><span class="hljs-attr">modulelist</span>=<span class="hljs-string">com.baomidou.mybatisplus.extension.p6spy.MybatisPlusLogFactory,com.p6spy.engine.outage.P6OutageFactory</span><br><span class="hljs-comment">#3.2.1以下使用或者不配置</span><br><span class="hljs-comment">#modulelist=com.p6spy.engine.logging.P6LogFactory,com.p6spy.engine.outage.P6OutageFactory</span><br><span class="hljs-comment"># 自定义日志打印</span><br><span class="hljs-attr">logMessageFormat</span>=<span class="hljs-string">com.baomidou.mybatisplus.extension.p6spy.P6SpyLogger</span><br><span class="hljs-comment">#日志输出到控制台</span><br><span class="hljs-attr">appender</span>=<span class="hljs-string">com.baomidou.mybatisplus.extension.p6spy.StdoutLogger</span><br><span class="hljs-comment"># 使用日志系统记录 sql</span><br><span class="hljs-comment">#appender=com.p6spy.engine.spy.appender.Slf4JLogger</span><br><span class="hljs-comment"># 设置 p6spy driver 代理</span><br><span class="hljs-attr">deregisterdrivers</span>=<span class="hljs-string">true</span><br><span class="hljs-comment"># 取消JDBC URL前缀</span><br><span class="hljs-attr">useprefix</span>=<span class="hljs-string">true</span><br><span class="hljs-comment"># 配置记录 Log 例外,可去掉的结果集有error,info,batch,debug,statement,commit,rollback,result,resultset.</span><br><span class="hljs-attr">excludecategories</span>=<span class="hljs-string">info,debug,result,commit,resultset</span><br><span class="hljs-comment"># 日期格式</span><br><span class="hljs-attr">dateformat</span>=<span class="hljs-string">yyyy-MM-dd HH:mm:ss</span><br><span class="hljs-comment"># 实际驱动可多个</span><br><span class="hljs-comment">#driverlist=org.h2.Driver</span><br><span class="hljs-comment"># 是否开启慢SQL记录</span><br><span class="hljs-attr">outagedetection</span>=<span class="hljs-string">true</span><br><span class="hljs-comment"># 慢SQL记录标准 2 秒</span><br><span class="hljs-attr">outagedetectioninterval</span>=<span class="hljs-string">2</span><br></code></pre></td></tr></table></figure>
+<p>注意！</p>
+<ul>
+<li>driver-class-name 为 p6spy 提供的驱动类</li>
+<li>url 前缀为 jdbc:p6spy 跟着冒号为对应数据库连接地址</li>
+<li>打印出sql为null,在excludecategories增加commit</li>
+<li>批量操作不打印sql,去除excludecategories中的batch</li>
+<li>批量操作打印重复的问题请使用MybatisPlusLogFactory (3.2.1新增）</li>
+<li>该插件有性能损耗，不建议生产环境使用。</li>
+</ul>
+
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+    <a href="/2021/05/10/Linux/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>Linux</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2021/02/10/mybatis-puls(%E4%B8%80)/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>mybatis-puls入门简介装配</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2021 By CHENHUAYI
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/yichen199709">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+<script>
+	console.log('\n %c 爱你的老陈 %c ', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>Linux-</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+
+<meta name="keywords" content="Linux,操作系统,系统,Cent OS,">
+<meta name="description" content="Linux是一套免费使用和自由传播的类Unix操作系统">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+	<meta name="generator" content="Hexo 5.3.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										主页
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										文章
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										分类
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										标签
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										友情链接
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>CHENHUAYI</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">主页</a>
+        </li>
+        
+        <li>
+            <a href="/archives">文章</a>
+        </li>
+        
+        <li>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <a href="/links">友情链接</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/yichen199709">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/Linux">Linux</a></li>
+            
+            <li><a href="/tags/操作系统">操作系统</a></li>
+            
+            <li><a href="/tags/系统">系统</a></li>
+            
+            <li><a href="/tags/Cent OS">Cent OS</a></li>
+            
+            
+        </ul>
+        <h1>Linux</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">CHENHUAYI</a></span>
+                <p>2021-05-10 08:44:33</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="1-Linux的引言"><a href="#1-Linux的引言" class="headerlink" title="1.Linux的引言"></a>1.Linux的引言</h2><p>Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于<code>POSIX和Unix</code>的<code>多用户</code>、<code>多任务</code>、<code>支持多线程和多CPU的操作系统</code>。伴随着互联网的发展，<code>Linux得到了来自全世界软件爱好者、组织、公司的支持</code>。它除了在<code>服务器操作系统</code>方面保持着强劲的发展势头以外，在个人电脑、嵌入式系统上都有着长足的进步。目前Linux存在着许多不同的Linux发行版本，<code>但它们都使用了Linux内核</code>。Linux可安装在各种计算机硬件设备中，比如手机、平板电脑、路由器、台式计算机。</p>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011200827437.png" alt="image-20191011200827437"></p>
+<hr>
+<h2 id="2-Linux的诞生"><a href="#2-Linux的诞生" class="headerlink" title="2.Linux的诞生"></a>2.Linux的诞生</h2><p>20世纪80年代，计算机硬件的性能不断提高，PC的市场不断扩大，当时可供计算机选用的操作系统主要有Unix、DOS和MacOS这几种。Unix价格昂贵，不能运行于<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/PC/107">PC</a>；<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/DOS/32025">DOS</a>显得简陋，且源代码被软件厂商严格保密；</p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/MacOS/8654551">MacOS</a>是一种专门用于苹果计算机的操作系统。此时，计算机科学领域迫切需要一个更加完善、强大、廉价和完全开放的操作系统。由于供教学使用的典型操作系统很少，因此当时在荷兰当教授的美国人AndrewS.Tanenbaum编写了一个操作系统，名为<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/MINIX/7106045">MINIX</a>，为了向学生讲述操作系统内部工作原理。MINIX虽然很好，但只是一个用于教学目的的简单操作系统，而不是一个强有力的实用操作系统，然而最大的好处就是公开源代码。<code>全世界学计算机的学生都通过钻研MINIX源代码来了解电脑里运行的MINIX操作系统，芬兰赫尔辛基大学大学二年级的学生Linus Torvalds就是其中一个，在吸收了MINIX精华的基础上，Linus于1991年写出了属于自己的Linux操作系统，版本为Linux0.01，是Linux时代开始的标志</code>。<code>他利用Unix的核心，去除繁杂的核心程序，改写成适用于一般计算机的x86系统，并放在网络上供大家下载，1994年推出完整的核心Version1.0，至此，Linux逐渐成为功能完善、稳定的操作系统，并被广泛使用。</code></p>
+<blockquote>
+<p><code>总结</code>:Linux出现于<code>1991年</code>，是由<code>芬兰赫尔辛基大学学生</code>,<code>Linus Torvalds</code>和后来加入的众多爱好者共同开发完成。</p>
+</blockquote>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011201019566.png" alt="image-20191011201019566"></p>
+<hr>
+<h2 id="3-Linux的特点"><a href="#3-Linux的特点" class="headerlink" title="3.Linux的特点"></a>3.Linux的特点</h2><h3 id="3-1-完全免费"><a href="#3-1-完全免费" class="headerlink" title="3.1 完全免费"></a>3.1 完全免费</h3><p>Linux是一款免费的操作系统，用户可以通过网络或其他途径免费获得，并可以任意修改其<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%BA%90%E4%BB%A3%E7%A0%81/3969">源代码</a>。这是其他的操作系统所做不到的。正是由于这一点，来自全世界的无数<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%A8%8B%E5%BA%8F%E5%91%98/62748">程序员</a>参与了Linux的修改、编写工作，程序员可以根据自己的兴趣和灵感对其进行改变，这让Linux吸收了无数程序员的精华，不断壮大。</p>
+<h3 id="3-2-多用户、多任务"><a href="#3-2-多用户、多任务" class="headerlink" title="3.2 多用户、多任务"></a>3.2 多用户、多任务</h3><p>Linux支持多用户，各个用户对于自己的文件设备有自己特殊的权利，保证了各用户之间互不影响。<code>多任务</code>则是现在电脑最主要的一个特点，Linux可以使多个程序同时并独立地运行。同时``丰富的网络功能，可靠的系统安全，良好的可移植性，具有标准兼容性，出色的速度性能`。</p>
+<hr>
+<h2 id="4-Linux之Cent-OS"><a href="#4-Linux之Cent-OS" class="headerlink" title="4.Linux之Cent OS"></a>4.Linux之Cent OS</h2><h3 id="4-1-centos-引言"><a href="#4-1-centos-引言" class="headerlink" title="4.1 centos 引言"></a>4.1 centos 引言</h3><p><code>CentOS（Community Enterprise Operating System，中文意思是社区企业操作系统）是Linux发行版之一</code>，它是来自于Red Hat Enterprise Linux依照<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BC%80%E6%94%BE%E6%BA%90%E4%BB%A3%E7%A0%81/114160">开放源代码</a>规定释出的源代码所编译而成。由于出自同样的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%BA%90%E4%BB%A3%E7%A0%81/3587471">源代码</a>，因此有些要求高度稳定性的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8/100571">服务器</a>以CentOS替代商业版的[Red Hat](<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Red">https://baike.baidu.com/item/Red</a> Hat) Enterprise Linux使用。两者的不同，在于<strong>CentOS完全开源</strong>。</p>
+<h3 id="4-2-centos-和-readheat区别"><a href="#4-2-centos-和-readheat区别" class="headerlink" title="4.2 centos 和 readheat区别"></a>4.2 centos 和 readheat区别</h3><p>目前的Linux操作系统主要应用于生产环境，<code>主流企业的Linux系统仍旧是RedHat或者CentOS</code>,他们出自于同样的源代码,但centos完全免费。其独有的yum命令支持在线升级，可以即时更新系统，不像RedHat 那样需要花钱购买支持服务！</p>
+<hr>
+<h2 id="5-安装-Cent-OS"><a href="#5-安装-Cent-OS" class="headerlink" title="5.安装 Cent OS"></a>5.安装 Cent OS</h2><h3 id="5-1-环境准备"><a href="#5-1-环境准备" class="headerlink" title="5.1 环境准备"></a>5.1 环境准备</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 环境要求:</span><br><span class="hljs-bullet">		1.</span> windows7+<br><span class="hljs-bullet">		2.</span> VMware Workstation8+,<br><span class="hljs-bullet">		3.</span> CentOS系统(镜像)<br></code></pre></td></tr></table></figure>
+<h3 id="5-2-安装Cent-OS"><a href="#5-2-安装Cent-OS" class="headerlink" title="5.2 安装Cent OS"></a>5.2 安装Cent OS</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 0.下载centos </span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.centos.org/">官网</a>:<a target="_blank" rel="noopener" href="https://www.centos.org/">https://www.centos.org/</a></p>
+<p><a target="_blank" rel="noopener" href="http://isoredirect.centos.org/centos/7/isos/x86_64/">官网的下载地址</a>:<a target="_blank" rel="noopener" href="http://isoredirect.centos.org/centos/7/isos/x86_64/">http://isoredirect.centos.org/centos/7/isos/x86_64/</a></p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.第一步:打开VMware Workstation</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011204617583.png" alt="image-20191011204617583"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 2.选择菜单File的第一项新建虚拟机</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011204734492.png" alt="image-20191011204734492"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 3.选择自定义虚拟机安装</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011204806260.png" alt="image-20191011204806260"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 4.选择下一步</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/640-20191011204836520.jpeg" alt="img"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 5. 虚拟机设置之后安装系统</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/640-20191011204924175.jpeg" alt="img"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 6.选择虚拟机安装系统以及版本</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011204948492.png" alt="image-20191011204948492"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 7.选择虚拟机名称与位置</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011205013122.png" alt="image-20191011205013122"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 8.设置处理器数</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011205034829.png" alt="image-20191011205034829"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 9.设置虚拟机内存</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011205101094.png" alt="image-20191011205101094"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 10.选择网络模式</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011205123751.png" alt="image-20191011205123751"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 11.选择io总线 下一步</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011205152854.png" alt="image-20191011205152854"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 12.选择新建硬盘</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011205218692.png" alt="image-20191011205218692"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 13.选择硬盘类型</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/640.png" alt="img"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 14.拆分硬盘</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/640-20191011205308573.jpeg" alt="img"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 15.设置磁盘位置</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/640-20191011205334834.png" alt="img"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 16.创建完成</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/640-20191011205358801.jpeg" alt="img"></p>
+<hr>
+<h2 id="6-Linux中目录结构"><a href="#6-Linux中目录结构" class="headerlink" title="6.Linux中目录结构"></a>6.Linux中目录结构</h2><p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011205611690.png" alt="image-20191011205611690"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 目录结构	</span><br><span class="hljs-code">	bin  (binaries)存放二进制可执行文件																									 [重点]</span><br><span class="hljs-code">	sbin  (super user binaries)存放二进制可执行文件，只有root才能访问</span><br><span class="hljs-code">	etc (etcetera)存放系统配置文件																											[重点]</span><br><span class="hljs-code">	usr  (unix shared resources)用于存放共享的系统资源  																	[重点]</span><br><span class="hljs-code">	home 存放用户文件的根目录																														 [重点]</span><br><span class="hljs-code">	root  超级用户目录																															   [重点]</span><br><span class="hljs-code">	dev (devices)用于存放设备文件</span><br><span class="hljs-code">	lib  (library)存放跟文件系统中的程序运行所需要的共享库及内核模块</span><br><span class="hljs-code">	mnt  (mount)系统管理员安装临时文件系统的安装点</span><br><span class="hljs-code">	boot 存放用于系统引导时使用的各种文件</span><br><span class="hljs-code">	tmp  (temporary)用于存放各种临时文件																							   [重点]</span><br><span class="hljs-code">	var  (variable)用于存放运行时需要改变数据的文件</span><br><span class="hljs-code"></span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="7-Linux中常用指令"><a href="#7-Linux中常用指令" class="headerlink" title="7. Linux中常用指令"></a>7. Linux中常用指令</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># Linux中命令格式:</span><br><span class="hljs-code">	</span><br><span class="hljs-code">		命令  -选项  参数    如:  ls -l /usr </span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>注意:在linux中命令严格区分大小写</code></p>
+</blockquote>
+<h3 id="7-1-ls-命令"><a href="#7-1-ls-命令" class="headerlink" title="7.1 ls 命令"></a>7.1 ls 命令</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># ls  显示文件和目录列表	(list)</span><br><br><span class="hljs-code">	常用参数:  </span><br><span class="hljs-code">		-l (long)	 长格式显示文件和目录信息</span><br><span class="hljs-code">		-a (all)	 显示所有文件和目录(包含隐藏文件和目录)</span><br><span class="hljs-code">		-R         递归显示指定目录下的文件清单，即会显示指定目录分支内各子目录中的文件清单。</span><br><span class="hljs-code"></span><br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 0. ls (查看目录下文件和目录)</span><br>[root@localhost ~]# ls<br>aa  aa.txt<br><br><span class="hljs-meta">#</span><span class="bash"> 1. ls -l (长格式展示文件)</span><br>[root@localhost ~]# ls -l<br>总用量 60<br>drwxrwxr-x      2   user1  user1    4096    Aug 17 09:10 abc<br>- rw- r-- r--    1   user1  user1    17     Aug 17 09:04 host.conf<br>- rw- r-- r--    1   user1  user1    38450  Aug 17 09:04 php.ini<br><br>`长格式含义:`<br>文件类型 文件权限   链接数  属主    属组    大小   日期   时间    文件名<br>d     rwxrwxr-x     2     user1  user1 4096  Aug 17 09:10  abc<br><br><span class="hljs-meta">#</span><span class="bash"> 2. ls -a (显示所有文件)</span><br>[root@localhost ~]# ls -a<br>.   aa      .bash_history  .bash_profile  .cshrc  .tcshrc<br>..  aa.txt  .bash_logout   .bashrc        .pki    .viminfo<br><br><span class="hljs-meta">#</span><span class="bash"> 3. ls -R (递归显示文件)</span><br>[root@localhost ~]# ls -R<br>.:<br>aa  aa.txt<br><br>./aa:<br></code></pre></td></tr></table></figure>
+<h3 id="7-2-操作文件命令-重点"><a href="#7-2-操作文件命令-重点" class="headerlink" title="7.2 操作文件命令[重点]"></a>7.2 操作文件命令[重点]</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 0.cd 用来切换目录</span><br><span class="hljs-section"># 1.pwd 显示当前工作目录（print working directory）</span><br><span class="hljs-section"># 2.touch 创建空文件		 </span><br><span class="hljs-section"># 3.mkdir 创建目录（make directoriy）</span><br><span class="hljs-code">			-p 父目录不存在情况下先生成父目录 （parents）            </span><br><span class="hljs-code"># 4.cp 复制文件或目录（copy）</span><br><span class="hljs-code">      cp  文件名    目录   复制文件到指定目录中</span><br><span class="hljs-code">      cp  -r 目录名    目录   复制指定目录到指定目录中</span><br><span class="hljs-code">			-r 递归处理，将指定目录下的文件与子目录一并拷贝（recursive）     </span><br><span class="hljs-code"># 5.mv 移动文件或目录、文件或目录改名（move）</span><br><span class="hljs-code">			mv 文件名    新文件名      文件改名</span><br><span class="hljs-code">			mv 文件名    目录名     	文件移动</span><br><span class="hljs-code">			mv 目录名    不存在目录名  目录改名   </span><br><span class="hljs-code">      mv 目录名	  已存在目录名  目录移动</span><br><span class="hljs-code"># 6.rm 删除文件（remove）</span><br><span class="hljs-code">			-r 同时删除该目录下的所有文件（recursive）</span><br><span class="hljs-code">			-f 强制删除文件或目录（force）</span><br><span class="hljs-code"># 7.rmdir 删除空目录（remove directoriy）</span><br><span class="hljs-code"># 8.cat 显示文本文件内容 （catenate） 用来展示少量内容</span><br><span class="hljs-code"># 9.more、less 分页显示文本文件内容   退出用q退出</span><br><span class="hljs-code"># 10.head、tail查看文本中开头或结尾部分的内容</span><br><span class="hljs-code">		head  -n  5  a.log 查看a.log文件的前5行</span><br><span class="hljs-code"># 11.tail  -f  b.log 循环读取（fellow）</span><br><span class="hljs-code"># 12.echo 输出命令</span><br><span class="hljs-code">			echo   I love baby								说明:用来向屏幕输出一句话</span><br><span class="hljs-code">			echo I Love baby  &gt;&gt;  aa.txt			说明:将这段内容输入到 文件中</span><br></code></pre></td></tr></table></figure>
+<h3 id="7-3-网络相关命令"><a href="#7-3-网络相关命令" class="headerlink" title="7.3 网络相关命令"></a>7.3 网络相关命令</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.ip addr 查看IP地址</span><br><span class="hljs-code">		ip a  简化写法</span><br><span class="hljs-code"># 2.ping 测试网络连通性</span><br><span class="hljs-code">		ping 192.168.0.1</span><br></code></pre></td></tr></table></figure>
+<h3 id="7-4-tar命令-windows-winrar-好压"><a href="#7-4-tar命令-windows-winrar-好压" class="headerlink" title="7.4 tar命令(windows winrar 好压)"></a>7.4 tar命令(windows winrar 好压)</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># tar 命令   </span><br><span class="hljs-code">		-c 建立一个压缩文件的参数指令（create）</span><br><span class="hljs-code">		-x 解开一个压缩文件的参数指令（extract）</span><br><span class="hljs-code">		-z 是否需要用 gzip 压缩  </span><br><span class="hljs-code">		-v 压缩的过程中显示文件（verbose）</span><br><span class="hljs-code">		-f 使用档名，在 f 之后要立即接档名（file）</span><br><span class="hljs-code"></span><br><span class="hljs-code">`通常组合使用:`</span><br><span class="hljs-code">			tar -cvf aaa.tar file1.txt file2.txt 					将file1和2打包成aaa.tar</span><br><span class="hljs-code">			</span><br><span class="hljs-code">			tar -zcvf aaa.tar.gz file1.txt file2.txt 			将file1和2打包成aaa.tar并压缩</span><br><span class="hljs-code">			tar -zxvf aaa.tar.gz file1.txt file2.txt 			将aaa.tar.gz解压</span><br></code></pre></td></tr></table></figure>
+<h3 id="7-5-systemctl-服务命令"><a href="#7-5-systemctl-服务命令" class="headerlink" title="7.5 systemctl 服务命令"></a>7.5 systemctl 服务命令</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># systemctl </span><br>  systemctl status|start|stop|restart 服务名  mysqld firewalld(防火墙) network(网络)<br><span class="hljs-code">	systemctl status 服务名          说明:查看某个服务的运行状态</span><br><span class="hljs-code">	systemctl start 服务名 					说明:启动某个服务</span><br><span class="hljs-code">	systemctl restart 服务名 				说明:重启某个服务</span><br><span class="hljs-code">	systemctl stop 服务名 						说明:停止某个服务</span><br></code></pre></td></tr></table></figure>
+<h3 id="7-6-进程相关命令"><a href="#7-6-进程相关命令" class="headerlink" title="7.6 进程相关命令"></a>7.6 进程相关命令</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.ps 询在当前控制台上运行的进程</span><br><span class="hljs-code">		ps  -aux   说明:查询系统中所有运行的进程，包括后台进程，其中参数a是所有进程，参数x包括不占用控制台的进程，参数u显示用户。</span><br><span class="hljs-code">		ps  -ef		 说明:查询系统中所有运行的进程，包括后台进程，而且可以显示出每个进程的父进程号。</span><br><span class="hljs-code"></span><br><span class="hljs-code">    ps -aux|grep 进程 服务名  关键字 tomcat  重点</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 2.top	命令  动态显示系统进程</span><br><span class="hljs-code"></span><br><span class="hljs-code"></span><br><span class="hljs-code"># 3.kill 杀死进程</span><br><span class="hljs-code">		kill  3029 说明：上述命令中3029是进程号；一般在执行kill命令之前，先用ps或pstree来查询一下将要被杀掉的进程的进程号。 </span><br><span class="hljs-code">		kill  -9  3029 说明:强制终止3029号进程的运行，其中参数-9代表强制的意思,实际上kill命令是向该进程发送信号，</span><br><span class="hljs-code">												该进程接到信号后决定是否停止运行，有些守护进程必须要收到参数9才终止运行。</span><br><span class="hljs-code">		</span><br></code></pre></td></tr></table></figure>
+<h3 id="7-7-vi命令"><a href="#7-7-vi命令" class="headerlink" title="7.7 vi命令"></a>7.7 vi命令</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># vi / vim是Unix / Linux上最常用的文本编辑器而且功能非常强大。</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191011213625815.png" alt="image-20191011213625815"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 常用命令:</span><br><br><span class="hljs-code">		i						在光标前插入</span><br><span class="hljs-code"> 		I						在光标当前行开始插入</span><br><span class="hljs-code"> 		a						在光标后插入</span><br><span class="hljs-code"> 		A						在光标当前行末尾插入</span><br><span class="hljs-code"> 		o						在光标当前行的下一行插入新行</span><br><span class="hljs-code"> 		O						在光标当前行的上一行插入新行</span><br><span class="hljs-code"> 		----------------重点---------------------------</span><br><span class="hljs-code"> 		:set nu			显示行号</span><br><span class="hljs-code"> 		:set nonu		取消行号</span><br><span class="hljs-code"> 		gg					到文本的第一行</span><br><span class="hljs-code"> 		G						到文本的最后一行</span><br><span class="hljs-code"> 		:n					到文本的第n行</span><br><span class="hljs-code"> 		------------------重点-------------------------</span><br><span class="hljs-code"> 		u						undo,取消上一步操作</span><br><span class="hljs-code"> 		Ctrl + r		redo,返回到undo之前</span><br><span class="hljs-code"> 		</span><br><span class="hljs-code"> 		-------------------重点------------------------</span><br><span class="hljs-code"> 		Shift+ zz		保存退出，与“:wq”作用相同</span><br><span class="hljs-code">		:q					退出不保存</span><br><span class="hljs-code">		:q!					强制退出不保存</span><br><span class="hljs-code">		:wq					保存退出</span><br><span class="hljs-code">		:wq!				强制保存退出</span><br></code></pre></td></tr></table></figure>
+<h3 id="7-8-软件相关命令"><a href="#7-8-软件相关命令" class="headerlink" title="7.8 软件相关命令"></a>7.8 软件相关命令</h3><p><code>RPM命令</code></p>
+<blockquote>
+<p>​    <code>RPM是RedHat Package Manager（RedHat软件包管理工具）的缩写，这一文件格式名称虽然打上了RedHat的标志，但是其原始设计理念是开放式的，现在包括RedHat、CentOS、SUSE等Linux的分发版本都有采用，可以算是公认的行业标准了。RPM文件在Linux系统中的安装最为简便,</code></p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># rpm 命令  </span><br><span class="hljs-code">	常用参数:</span><br><span class="hljs-code">      i：安装应用程序（install）</span><br><span class="hljs-code">      e：卸载应用程序（erase）</span><br><span class="hljs-code">      vh：显示安装进度；（verbose   hash） </span><br><span class="hljs-code">      U：升级软件包；（update） </span><br><span class="hljs-code">      qa: 显示所有已安装软件包（query all）</span><br><span class="hljs-code">	例子：rmp  -ivh  gcc-c++-4.4.7-3.el6.x86_64.rpm</span><br><span class="hljs-code"></span><br><span class="hljs-code">安装 </span><br><span class="hljs-code">		rpm -ivh  xxxx.rpm</span><br><span class="hljs-code">    rpm -evh  xxxx.rpm</span><br><span class="hljs-code">    rpm -Uvh  xxx.rpm</span><br><span class="hljs-code">    rpm -qa </span><br><span class="hljs-code"></span><br></code></pre></td></tr></table></figure>
+<p><code>YUM命令</code></p>
+<blockquote>
+<p>​    <code>Yum（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及SUSE、CentOS中的Shell前端软件包管理器。基於RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装。</code></p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">例子：<br><span class="hljs-code">    yum  install  gcc-c++</span><br><span class="hljs-code">    yum  remove   gcc-c++</span><br><span class="hljs-code">    yum  update   gcc-c++</span><br><span class="hljs-code">    </span><br><span class="hljs-code">    yum install|remove|update  依赖名称</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>使用YUM命令必须连接外部网络</code></p>
+</blockquote>
+<h3 id="7-9-用户和组相关命令"><a href="#7-9-用户和组相关命令" class="headerlink" title="7.9 用户和组相关命令"></a>7.9 用户和组相关命令</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.查看当前用户：whoami</span><br><span class="hljs-section"># 2.查看登录用户：who</span><br><span class="hljs-code">	-m或am I	只显示运行who命令的用户名、登录终端和登录时间</span><br><span class="hljs-code">	-q或--count	只显示用户的登录账号和登录用户的数量</span><br><span class="hljs-code"># 3.退出用户:		exit</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 4.添加、删除组账号：groupadd、groupdel</span><br><span class="hljs-code"># 5.添加用户账号：useradd</span><br><span class="hljs-code">		-g	指定组名称  说明:如果创建用户的时候，不指定组名，那么系统会自动创建一个和用户名一样的组名。</span><br><span class="hljs-code"># 6.设置用户密码：passwd　[用户名]</span><br><span class="hljs-code"># 7.su 切换用户</span><br><span class="hljs-code">		su  root </span><br></code></pre></td></tr></table></figure>
+<h3 id="7-10-权限相关命令"><a href="#7-10-权限相关命令" class="headerlink" title="7.10 权限相关命令"></a>7.10 权限相关命令</h3><blockquote>
+<p>Linux文件有<code>三种</code>典型的权限，<code>即r读权限、w写权限和x执行权限</code>。在长格式输出中在文件类型的后面有9列权限位，实际上这是针对不同用户而设定的。<code>r=4，w=2，x=1</code></p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># chmod </span><br>  all = user + group + other <br>  chmod  u+rwx,g+rwx,o+rwx   文件名<br><span class="hljs-code">	字母法：chmod u/g/o/a +/-/= rwx 文件</span><br><span class="hljs-code">	</span><br><span class="hljs-code">    [ u/g/o/a ]	含义</span><br><span class="hljs-code">    	u	user 					表示该文件的所有者</span><br><span class="hljs-code">    	g	group 				表示与该文件的所有者属于同一组( group )者，即用户组</span><br><span class="hljs-code">    	o	other 				表示其他以外的人</span><br><span class="hljs-code">    	a	all 					表示这三者皆是</span><br><span class="hljs-code"></span><br><span class="hljs-code">    [ +-= ]	含义</span><br><span class="hljs-code">    	+								增加权限</span><br><span class="hljs-code">    	-								撤销权限</span><br><span class="hljs-code">    	=								设定权限</span><br><span class="hljs-code"></span><br><span class="hljs-code">    rwx	含义</span><br><span class="hljs-code">    	r								read 表示可读取，对于一个目录，如果没有r权限，那么就意味着不能通过ls查看这个目录的内容。</span><br><span class="hljs-code">    	w								write 表示可写入，对于一个目录，如果没有w权限，那么就意味着不能在目录下创建新的文件。</span><br><span class="hljs-code">    	x								excute 表示可执行，对于一个目录，如果没有x权限，那么就意味着不能通过cd进入这个目录。</span><br><span class="hljs-code">   </span><br><span class="hljs-code">   数字法:   4读 2写  1执行</span><br><span class="hljs-code">      chmod 777 文件名</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="8-CRT终端操作"><a href="#8-CRT终端操作" class="headerlink" title="8.CRT终端操作"></a>8.CRT终端操作</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 0.准备工作</span><br><span class="hljs-code">		安装CRT客户端工具,安装winscp工具</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 1.设置linux获取ip地址 (编辑网络配置文件)	</span><br><span class="hljs-code">		vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 2.修改ens33配置文件:</span><br><span class="hljs-code">    BOOTPROTO=dhcp</span><br><span class="hljs-code">    ONBOOT=yes</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 3.重启启动网路服务加载修改配置生效</span><br><span class="hljs-code">		systemctl restart network</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 4.查看ip地址</span><br><span class="hljs-code">		ip addr</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 5.此时ip已经获取</span><br><span class="hljs-code">		ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000</span><br><span class="hljs-code">    link/ether 00:0c:29:07:16:9e brd ff:ff:ff:ff:ff:ff</span><br><span class="hljs-code">    inet 192.168.202.136/24 brd 192.168.202.255 scope global noprefixroute dynamic ens33</span><br><span class="hljs-code">       valid_lft 1459sec preferred_lft 1459sec</span><br><span class="hljs-code">    inet6 fe80::b22b:7e01:db87:52fe/64 scope link noprefixroute </span><br><span class="hljs-code"></span><br><span class="hljs-code"># 6.测试外部网络连通(保证宿主机windows可以上网前提)</span><br><span class="hljs-code">		ping www.baidu.com</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 7.使用CRT工具连接即可</span><br></code></pre></td></tr></table></figure>
+<h2 id="9-安装JDK"><a href="#9-安装JDK" class="headerlink" title="9.安装JDK"></a>9.安装JDK</h2><h3 id="9-1-下载jdk"><a href="#9-1-下载jdk" class="headerlink" title="9.1 下载jdk"></a>9.1 下载jdk</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.下载jdk</span><br><span class="hljs-code">	https://www.oracle.com/technetwork/java/javase/downloads/index.html</span><br><span class="hljs-code">	https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 2.通过CRT|WinSCP工具将jdk上传到linux系统中	</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013121013589.png" alt="image-20191013121013589"></p>
+<h3 id="9-2-tar包安装"><a href="#9-2-tar包安装" class="headerlink" title="9.2 tar包安装"></a>9.2 tar包安装</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.将JDK解压缩到指定目录</span><br><span class="hljs-code">	tar -zxvf jdk-8u171-linux-x64.tar.gz -C /usr/</span><br><span class="hljs-code">	注意:-C参数是将JDK解压之后文件放入usr目录中</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 2.进入jdk解压缩目录查看</span><br><span class="hljs-code">	cd /usr/jdk1.8.0_171/</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 3.查看详细信息</span><br><span class="hljs-code">	[root@localhost jdk1.8.0_171]# ls</span><br><span class="hljs-code">		bin        db       javafx-src.zip  lib      man          release  THIRDPARTYLICENSEREADME-JAVAFX.txt</span><br><span class="hljs-code">		COPYRIGHT  include  jre             LICENSE  README.html  src.zip  THIRDPARTYLICENSEREADME.txt</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 4.配置环境变量</span><br><span class="hljs-code">	 vi /etc/profile</span><br><span class="hljs-code">	 </span><br><span class="hljs-code"># 5.在文件末尾加入如下配置</span><br><span class="hljs-code">	export JAVA_HOME=/usr/jdk1.8.0_171</span><br><span class="hljs-code">	export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 6.加载配置生效</span><br><span class="hljs-code">	source /etc/profile    加载配置生效</span><br><span class="hljs-code">	reboot                 重启系统</span><br><span class="hljs-code">	注意: 以上两个选项选择任意一个即可source可以不用重启立即生效,某些情况下source无法生效时,可以使用重启试试</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 7.测试环境变量</span><br><span class="hljs-code">	java</span><br><span class="hljs-code">	javac</span><br><span class="hljs-code">	java -version</span><br></code></pre></td></tr></table></figure>
+<h3 id="9-3-rpm包安装"><a href="#9-3-rpm包安装" class="headerlink" title="9.3 rpm包安装"></a>9.3 rpm包安装</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.安装jdk</span><br><span class="hljs-code">	[root@localhost ~]# rpm -ivh jdk-8u171-linux-x64.rpm </span><br><span class="hljs-code">		准备中...                          ################################# [100%]</span><br><span class="hljs-code">		正在升级/安装...</span><br><span class="hljs-code">   		1:jdk1.8-2000:1.8.0_171-fcs        ################################# [100%]</span><br><span class="hljs-code">			Unpacking JAR files...</span><br><span class="hljs-code">        tools.jar...</span><br><span class="hljs-code">        plugin.jar...</span><br><span class="hljs-code">        javaws.jar...</span><br><span class="hljs-code">        deploy.jar...</span><br><span class="hljs-code">        rt.jar...</span><br><span class="hljs-code">        jsse.jar...</span><br><span class="hljs-code">        charsets.jar...</span><br><span class="hljs-code">        localedata.jar...</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 2.搜索默认安装位置</span><br><span class="hljs-code">	 [root@localhost ~]# find / -name &quot;java&quot;</span><br><span class="hljs-code">	 	/usr/java/jdk1.8.0_171-amd64/bin/java</span><br><span class="hljs-code">		/usr/java/jdk1.8.0_171-amd64/jre/bin/java</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 3.配置环境变量</span><br><span class="hljs-code">	 vi /etc/profile</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 4.在文件末尾加入如下配置</span><br><span class="hljs-code">	export JAVA_HOME=/usr/java/jdk1.8.0_171-amd64/</span><br><span class="hljs-code">	export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 5.加载配置生效</span><br><span class="hljs-code">	source /etc/profile    加载配置生效</span><br><span class="hljs-code">	reboot                 重启系统</span><br><span class="hljs-code">	注意: 以上两个选项选择任意一个即可source可以不用重启立即生效,某些情况下source无法生效时,可以使用重启试试</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 6.测试环境变量</span><br><span class="hljs-code">	java</span><br><span class="hljs-code">	javac</span><br><span class="hljs-code">	java -version</span><br><span class="hljs-code">	</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="10-安装Tomcat"><a href="#10-安装Tomcat" class="headerlink" title="10.安装Tomcat"></a>10.安装Tomcat</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 0.下载tomcat</span><br><span class="hljs-code">	http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.46/bin/apache-tomcat-8.5.46.tar.gz</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 1.通过工具上传到Linux系统中</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 2.解压缩到/usr目录中</span><br><span class="hljs-code">	[root@localhost ~]# tar -zxvf apache-tomcat-8.5.46.tar.gz -C /usr/</span><br><span class="hljs-code">	-C 用来指定解压缩的位置</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 3.查看解压内容</span><br><span class="hljs-code">	[root@localhost apache-tomcat-8.5.46]# ls -l</span><br><span class="hljs-code">    总用量 124</span><br><span class="hljs-code">    drwxr-x---. 2 root root  4096 10月 13 12:27 bin</span><br><span class="hljs-code">    -rw-r-----. 1 root root 19318 9月  17 02:19 BUILDING.txt</span><br><span class="hljs-code">    drwx------. 2 root root   238 9月  17 02:19 conf</span><br><span class="hljs-code">    -rw-r-----. 1 root root  5407 9月  17 02:19 CONTRIBUTING.md</span><br><span class="hljs-code">    drwxr-x---. 2 root root  4096 10月 13 12:27 lib</span><br><span class="hljs-code">    -rw-r-----. 1 root root 57011 9月  17 02:19 LICENSE</span><br><span class="hljs-code">    drwxr-x---. 2 root root     6 9月  17 02:17 logs</span><br><span class="hljs-code">    -rw-r-----. 1 root root  1726 9月  17 02:19 NOTICE</span><br><span class="hljs-code">    -rw-r-----. 1 root root  3255 9月  17 02:19 README.md</span><br><span class="hljs-code">    -rw-r-----. 1 root root  7139 9月  17 02:19 RELEASE-NOTES</span><br><span class="hljs-code">    -rw-r-----. 1 root root 16262 9月  17 02:19 RUNNING.txt</span><br><span class="hljs-code">    drwxr-x---. 2 root root    30 10月 13 12:27 temp</span><br><span class="hljs-code">    drwxr-x---. 7 root root    81 9月  17 02:17 webapps</span><br><span class="hljs-code">    drwxr-x---. 2 root root     6 9月  17 02:17 work</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 4.启动tomcat</span><br><span class="hljs-code">	[root@localhost apache-tomcat-8.5.46]# ./bin/startup.sh </span><br><span class="hljs-code"></span><br><span class="hljs-code"># 5.关闭网络防火墙</span><br><span class="hljs-code">	systemctl stop firewalld	   关闭网络防火墙</span><br><span class="hljs-code">	systemctl disable firewalld  关闭开机自启动(永久关闭)</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 6.在windows中访问tomcat</span><br><span class="hljs-code">	http://10.15.0.8:8080/</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 7.显示tomcat实时控制台信息</span><br><span class="hljs-code">	进入tomcat的logs目录中使用tail -f catalina.out 命令实时查看控制台信息 </span><br><span class="hljs-code"></span><br><span class="hljs-code"># 8.关闭tomcat</span><br><span class="hljs-code">	在tomcat的bin目录下面使用 ./shutdown.sh</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="11-安装MySQL"><a href="#11-安装MySQL" class="headerlink" title="11.安装MySQL"></a>11.安装MySQL</h2><h3 id="11-1-环境准备"><a href="#11-1-环境准备" class="headerlink" title="11.1 环境准备"></a>11.1 环境准备</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.卸载mariadb，否则安装mysql会出现冲突</span><br><span class="hljs-section"># 2.执行命令rpm -qa | grep mariadb</span><br><span class="hljs-section"># 3.列出所有被安装的mariadb rpm 包；</span><br><span class="hljs-section"># 4.执行命令rpm -e --nodeps mariadb-libs-5.5.56-2.el7.x86<span class="hljs-emphasis">_64</span></span><br></code></pre></td></tr></table></figure>
+<h3 id="11-2-本地安装-5-6版本默认root没有密码"><a href="#11-2-本地安装-5-6版本默认root没有密码" class="headerlink" title="11.2 本地安装(5.6版本默认root没有密码)"></a>11.2 本地安装(5.6版本默认root没有密码)</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 0.上传下载好的软件包到系统中</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013124602190.png" alt="image-20191013124602190"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 0.执行本地安装包之前必须先安装vim</span><br>	yum install -y vim<br><span class="hljs-meta">#</span><span class="bash"> 1.安装步骤</span><br>	rpm -ivh perl-*<br>	rpm -ivh net-tools-2.0-0.22.20131004git.el7.x86_64.rpm<br>	rpm -ivh mysql-community-common-5.6.42-2.el7.x86_64.rpm<br>	rpm -ivh mysql-community-libs-5.6.42-2.el7.x86_64.rpm<br>	rpm -ivh mysql-community-client-5.6.42-2.el7.x86_64.rpm<br>	rpm -ivh mysql-community-server-5.6.42-2.el7.x86_64.rpm<br></code></pre></td></tr></table></figure>
+<h3 id="11-3-在线安装"><a href="#11-3-在线安装" class="headerlink" title="11.3 在线安装"></a>11.3 在线安装</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.添加官方的yum源创建并编辑mysql-community.repo文件</span><br><span class="hljs-code">		vi /etc/yum.repos.d/mysql-community.repo</span><br><span class="hljs-code"># 2.粘贴以下内容到源文件中</span><br><span class="hljs-code">		[mysql56-community]</span><br><span class="hljs-code">    name=MySQL 5.6 Community Server</span><br><span class="hljs-code">    baseurl=http://repo.mysql.com/yum/mysql-5.6-community/el/7/$basearch/</span><br><span class="hljs-code">    enabled=1</span><br><span class="hljs-code">    gpgcheck=0</span><br><span class="hljs-code">    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql</span><br><span class="hljs-code">    </span><br><span class="hljs-code">    注意:如果需要安装mysql5.7只需要将baseurl修改即可 </span><br><span class="hljs-code">    	baseurl=http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 3.安装mysql</span><br><span class="hljs-code">	sudo yum install -y mysql-community-server</span><br></code></pre></td></tr></table></figure>
+<h3 id="11-4-设置root用户密码"><a href="#11-4-设置root用户密码" class="headerlink" title="11.4 设置root用户密码"></a>11.4 设置root用户密码</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.启动mysql数据库</span><br><span class="hljs-code">	[root@localhost mysql]# systemctl start mysqld</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 2.修改mysql数据库密码</span><br><span class="hljs-code">	mysqladmin -u root -p password 回车 输入原始密码 在输入新的密码</span><br><span class="hljs-code">	</span><br><span class="hljs-code">	注意:5.7之前版本安装完成之后没有密码,mysql5.7之后的版本的初始密码是随机生成的，放在了 /var/log/mysqld.log</span><br><span class="hljs-code">			使用命令 grep ‘temporary password’ /var/log/mysqld.log 读出来即可</span><br><span class="hljs-code">			ROOT!Q2w</span><br><span class="hljs-code"># 3.登录mysql</span><br><span class="hljs-code">	[root@localhost mysql]# mysql -u root -p  </span><br></code></pre></td></tr></table></figure>
+<h3 id="11-5-开启远程访问"><a href="#11-5-开启远程访问" class="headerlink" title="11.5 开启远程访问"></a>11.5 开启远程访问</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.安装完成mysql时,发现mysql数据库,不允许我们远程连接需要修改设置</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013130519305.png" alt="image-20191013130519305"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 2.登录mysql,并选择使用mysql数据库</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013130544372.png" alt="image-20191013130544372"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 3.查看mysql库中的所有表</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013130645099.png" alt="image-20191013130645099"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 4.查询user表</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013130748107.png" alt="image-20191013130748107"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 5.执行如下命令</span><br><span class="hljs-code">	grant all privileges on *.* to &#x27;root&#x27;@&#x27;%&#x27; identified by &#x27;ROOT!Q2w&#x27; with grant option;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013131257409.png" alt="image-20191013131257409"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 6.刷新权限</span><br><span class="hljs-code">	flush privileges;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013131324656.png" alt="image-20191013131324656"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 7.重启服务</span><br><span class="hljs-code">	systemctl restart mysqld</span><br><span class="hljs-code"># 8.测试连接</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013131419858.png" alt="image-20191013131419858"></p>
+<hr>
+<h2 id="12-MySQL主从复制"><a href="#12-MySQL主从复制" class="headerlink" title="12.MySQL主从复制"></a>12.MySQL主从复制</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 0.架构规划</span><br><span class="hljs-code">	192.168.202.201    master  主节点</span><br><span class="hljs-code">	192.168.202.202    slave   从节点</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 1.修改mysql的配置文件</span><br><span class="hljs-code">	[root@localhost mysql]# vim /etc/my.cnf</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 2.分别在配置文件中加入如下配置</span><br><span class="hljs-code"></span><br><span class="hljs-code">	mysql(master):</span><br><span class="hljs-code">		server-id=1</span><br><span class="hljs-code">		log-bin=mysql-bin</span><br><span class="hljs-code">		log-slave-updates</span><br><span class="hljs-code">		slave-skip-errors=all</span><br><span class="hljs-code">	</span><br><span class="hljs-code">	msyql(slave):</span><br><span class="hljs-code">		server-id=2</span><br><span class="hljs-code">		log-bin=mysql-bin</span><br><span class="hljs-code">		log-slave-updates</span><br><span class="hljs-code">		slave-skip-errors=all</span><br><span class="hljs-code">		</span><br><span class="hljs-code">		注意:两个机器的server-id不能一致</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013201349444.png" alt="image-20191013201349444"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 3.重启mysql服务</span><br><span class="hljs-code">	systemctl restart mysqld</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 4.登录mysql执行如下命令检测配置是否生效</span><br><span class="hljs-code">	SHOW VARIABLES like &#x27;server_id&#x27;;</span><br></code></pre></td></tr></table></figure>
+<img src=" https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013201523812.png" alt="image-20191013201523812"  />
+
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 5.登录master节点执行如下命令</span><br><span class="hljs-code">		show master status;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013203543728.png" alt="image-20191013203543728"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 6.登录从节点执行如下命令:</span><br><span class="hljs-code">		change master to </span><br><span class="hljs-code">		master_host=&#x27;10.15.0.9&#x27;,</span><br><span class="hljs-code">		master_user=&#x27;root&#x27;,</span><br><span class="hljs-code">		master_password=&#x27;root&#x27;,</span><br><span class="hljs-code">		master_log_file=&#x27;mysql-bin.000001&#x27;,</span><br><span class="hljs-code">		master_log_pos=120;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013204344807.png" alt="image-20191013204344807"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 7.开启从节点</span><br><span class="hljs-code">		start slave; </span><br><span class="hljs-code">		stop  slave;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191013204413766.png" alt="image-20191013204413766"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 8.查看从节点状态</span><br><span class="hljs-code">		show slave status\G;</span><br><span class="hljs-code"></span><br><span class="hljs-code">		************************** 1. row ***************************</span><br><span class="hljs-code">               Slave_IO_State: Waiting for master to send event</span><br><span class="hljs-code">                  Master_Host: 10.15.0.9</span><br><span class="hljs-code">                  Master_User: root</span><br><span class="hljs-code">                  Master_Port: 3306</span><br><span class="hljs-code">                Connect_Retry: 60</span><br><span class="hljs-code">              Master_Log_File: mysql-bin.000001</span><br><span class="hljs-code">          Read_Master_Log_Pos: 120</span><br><span class="hljs-code">               Relay_Log_File: mysqld-relay-bin.000002</span><br><span class="hljs-code">                Relay_Log_Pos: 283</span><br><span class="hljs-code">        Relay_Master_Log_File: mysql-bin.000001</span><br><span class="hljs-code">             Slave_IO_Running: Yes</span><br><span class="hljs-code">            Slave_SQL_Running: Yes</span><br><span class="hljs-code">   	</span><br><span class="hljs-code">    注意:</span><br><span class="hljs-code">    		1.出现 Slave_IO_Running: Yes 和 Slave_SQL_Running: Yes 说名成功,</span><br><span class="hljs-code">    		2.如果在搭建过程出现错误,可以查看查看错误日志文件 cat /var/log/mysqld.log</span><br><span class="hljs-code"> </span><br><span class="hljs-code"># 9.通过客户端工具进行测试</span><br><span class="hljs-code">	</span><br><span class="hljs-code"># 10.关闭主从复制(在从节点执行)</span><br><span class="hljs-code">	stop slave;</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>注意:如果出现Slave I/O: Fatal error: The slave I/O thread stops because master and slave have equal MySQL server UUIDs; these UUIDs must be different for replication to work. Error_code: 1593错误,请执行如下命令,rm -rf /var/lib/mysql/auto.cnf删除这个文件,之所以出现会出现这样的问题，是因为我的从库主机是克隆的主库所在的主机，所以auto.cnf文件中保存的UUID会出现重复.</li>
+</ul>
+<hr>
+<h2 id="13-读写分离"><a href="#13-读写分离" class="headerlink" title="13.读写分离"></a>13.读写分离</h2><h3 id="13-1-MyCat引言"><a href="#13-1-MyCat引言" class="headerlink" title="13.1 MyCat引言"></a>13.1 MyCat引言</h3><p>基于阿里开源的Cobar产品而研发，Cobar的稳定性、可靠性、优秀的架构和性能以及众多成熟的使用案例使得MYCAT一开始就拥有一个很好的起点，站在巨人的肩膀上，我们能看到更远。业界优秀的开源项目和创新思路被广泛融入到MYCAT的基因中，使得MYCAT在很多方面都领先于目前其他一些同类的开源项目，甚至超越某些商业产品。</p>
+<p>MYCAT背后有一支强大的技术团队，其参与者都是5年以上资深软件工程师、架构师、DBA等，优秀的技术团队保证了MYCAT的产品质量。MYCAT并不依托于任何一个商业公司，因此不像某些开源项目，将一些重要的特性封闭在其商业产品中，使得开源项目成了一个摆设. </p>
+<h3 id="13-2-安装Mycat"><a href="#13-2-安装Mycat" class="headerlink" title="13.2 安装Mycat"></a>13.2 安装Mycat</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.下载mycat</span><br><span class="hljs-code">	http://dl.mycat.io/1.6-RELEASE/Mycat-server-1.6-RELEASE-20161028204710-linux.tar.gz</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 2.解压mycat</span><br><span class="hljs-code">	tar -zxvf Mycat-server-1.6-RELEASE-20161028204710-linux.tar.gz</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191014225929256.png" alt="image-20191014225929256"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 3.查看解压之后目录]</span><br><span class="hljs-code">	[root@localhost mycat]# ls</span><br><span class="hljs-code">	总用量 12</span><br><span class="hljs-code">	drwxr-xr-x. 2 root root  190 10月 14 22:58 bin</span><br><span class="hljs-code">	drwxrwxrwx. 2 root root    6 3月   1 2016 catlet</span><br><span class="hljs-code">	drwxrwxrwx. 4 root root 4096 10月 14 22:58 conf</span><br><span class="hljs-code">	drwxr-xr-x. 2 root root 4096 10月 14 22:58 lib</span><br><span class="hljs-code">	drwxrwxrwx. 2 root root    6 10月 28 2016 logs</span><br><span class="hljs-code">	-rwxrwxrwx. 1 root root  217 10月 28 2016 version.txt</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191014230002014.png" alt="image-20191014230002014"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 4.移动到/usr目录</span><br><span class="hljs-code">	mv mycat/ /usr/</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 5.配置mycat中conf下的配置schema.xml</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 定义MyCat的逻辑库  --&gt;</span>   <br>   <span class="hljs-tag">&lt;<span class="hljs-name">schema</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;test_schema&quot;</span> <span class="hljs-attr">checkSQLschema</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">sqlMaxLimit</span>=<span class="hljs-string">&quot;100&quot;</span> <span class="hljs-attr">dataNode</span>=<span class="hljs-string">&quot;testNode&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">schema</span>&gt;</span><br>   <span class="hljs-comment">&lt;!-- 定义MyCat的数据节点 --&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">dataNode</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;testNode&quot;</span> <span class="hljs-attr">dataHost</span>=<span class="hljs-string">&quot;dtHost&quot;</span> <span class="hljs-attr">database</span>=<span class="hljs-string">&quot;test&quot;</span> /&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dataHost</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dtHost&quot;</span> <span class="hljs-attr">maxCon</span>=<span class="hljs-string">&quot;1000&quot;</span> <span class="hljs-attr">minCon</span>=<span class="hljs-string">&quot;10&quot;</span> <span class="hljs-attr">balance</span>=<span class="hljs-string">&quot;1&quot;</span></span><br><span class="hljs-tag">               <span class="hljs-attr">writeType</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">dbType</span>=<span class="hljs-string">&quot;mysql&quot;</span> <span class="hljs-attr">dbDriver</span>=<span class="hljs-string">&quot;native&quot;</span> <span class="hljs-attr">switchType</span>=<span class="hljs-string">&quot;-1&quot;</span>  <span class="hljs-attr">slaveThreshold</span>=<span class="hljs-string">&quot;100&quot;</span>&gt;</span><br>               <span class="hljs-tag">&lt;<span class="hljs-name">heartbeat</span>&gt;</span>select user()<span class="hljs-tag">&lt;/<span class="hljs-name">heartbeat</span>&gt;</span><br>               <span class="hljs-comment">&lt;!--写节点--&gt;</span><br>               <span class="hljs-tag">&lt;<span class="hljs-name">writeHost</span> <span class="hljs-attr">host</span>=<span class="hljs-string">&quot;hostM1&quot;</span> <span class="hljs-attr">url</span>=<span class="hljs-string">&quot;192.168.28.128:3306&quot;</span> <span class="hljs-attr">user</span>=<span class="hljs-string">&quot;root&quot;</span></span><br><span class="hljs-tag">                       <span class="hljs-attr">password</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span><br>                 		<span class="hljs-comment">&lt;!--从节点--&gt;</span><br>               			<span class="hljs-tag">&lt;<span class="hljs-name">readHost</span> <span class="hljs-attr">host</span>=<span class="hljs-string">&quot;hostS1&quot;</span> <span class="hljs-attr">url</span>=<span class="hljs-string">&quot;192.168.28.129:3306&quot;</span> <span class="hljs-attr">user</span>=<span class="hljs-string">&quot;root&quot;</span> <span class="hljs-attr">password</span>=<span class="hljs-string">&quot;root&quot;</span> /&gt;</span><br>               <span class="hljs-tag">&lt;/<span class="hljs-name">writeHost</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">dataHost</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 6.配置登陆mycat的权限server.xml</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">system</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- 这里配置的都是一些系统属性，可以自己查看mycat文--&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;defaultSqlParser&quot;</span>&gt;</span>druidparser<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;charset&quot;</span>&gt;</span>utf8mb4<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">system</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">user</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;root&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;password&quot;</span>&gt;</span>root<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;schemas&quot;</span>&gt;</span>test_schema<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">user</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 7.启动mycat</span><br><span class="hljs-code">	 ./mycat console</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 8.查看日志</span><br><span class="hljs-code">	tail -f ../logs/mycat.log</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 9.数据库连接配置,测试</span><br></code></pre></td></tr></table></figure>
+<h2 id="14-安装Nginx"><a href="#14-安装Nginx" class="headerlink" title="14.安装Nginx"></a>14.安装Nginx</h2><h3 id="14-1-Nginx的引言"><a href="#14-1-Nginx的引言" class="headerlink" title="14.1 Nginx的引言"></a>14.1 Nginx的引言</h3><p><code>Nginx</code>是一款<a target="_blank" rel="noopener" href="http://baike.baidu.com/subview/1318763/16205192.htm">轻量级</a>的<a target="_blank" rel="noopener" href="http://baike.baidu.com/subview/3912/15992867.htm">Web</a> 服务器/<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/1165595.htm">反向代理</a>服务器及<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/1524.htm">电子邮件</a>（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。由俄罗斯的程序设计师Igor Sysoev所开发，供俄国大型的入口网站及搜索引擎Rambler（俄文：Рамблер）使用。其特点是占有内存少，<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/684757.htm">并发</a>能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/1412737.htm">京东</a>、<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/2410.htm">新浪</a>、<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/6043.htm">网易</a>、<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/1591.htm">腾讯</a>、<a target="_blank" rel="noopener" href="http://baike.baidu.com/view/3629.htm">淘宝</a>等。</p>
+<h3 id="14-2-Nginx的安装"><a href="#14-2-Nginx的安装" class="headerlink" title="14.2 Nginx的安装"></a>14.2 Nginx的安装</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 0.安装必要依赖</span><br><span class="hljs-code">	yum install -y gcc pcre-devel zlib-devel</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 1.下载Nginx</span><br><span class="hljs-code">	http://nginx.org/en/download.html</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 2.将Nginx上传到linux中,并解压缩</span><br><span class="hljs-code">	 tar -zxvf nginx-1.11.1.tar.gz</span><br><span class="hljs-code"></span><br><span class="hljs-code"></span><br><span class="hljs-code"># 3.查看Nginx安装目录</span><br><span class="hljs-code">	[root@localhost nginx-1.11.1]# ls</span><br><span class="hljs-code">	auto  CHANGES  CHANGES.ru  conf  configure  contrib  html  LICENSE  man  README  src</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 4.在Nginx安装目录中执行如下命令:(指定安装位置)</span><br><span class="hljs-code">	./configure --prefix=/usr/nginx</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 5.执行上述命令后,执行如下命令:</span><br><span class="hljs-code">	make &amp;&amp; make install</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 6.编译完成后进入编译安装目录/usr/nginx目录中查看:</span><br><span class="hljs-code">	[root@localhost nginx]# ls -l</span><br><span class="hljs-code">	总用量 4</span><br><span class="hljs-code">	drwxr-xr-x. 2 root root 4096 10月 14 21:17 conf</span><br><span class="hljs-code">	drwxr-xr-x. 2 root root   40 10月 14 21:17 html</span><br><span class="hljs-code">	drwxr-xr-x. 2 root root    6 10月 14 21:17 logs</span><br><span class="hljs-code">	drwxr-xr-x. 2 root root   19 10月 14 21:17 sbin</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 7.启动nginx,进入nginx安装目录的sbin目录中执行:</span><br><span class="hljs-code">	./nginx   </span><br><span class="hljs-code"></span><br><span class="hljs-code"># 8.在windows中浏览器访问,可以看到nginx欢迎页面:</span><br><span class="hljs-code">	http://10.15.0.8:80/</span><br><span class="hljs-code">	</span><br><span class="hljs-code">		注意:关闭网络防火墙</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 9.关闭nginx,进入nginx安装目录的sbin目录中执行:</span><br><span class="hljs-code">	./nginx -s stop</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 10.nginx配置文件在nginx安装目录的conf目录中:</span><br><span class="hljs-code">	[root@localhost conf]# ls -l</span><br><span class="hljs-code">	总用量 60</span><br><span class="hljs-code">	-rw-r--r--. 1 root root 2656 10月 14 21:17 nginx.conf</span><br><span class="hljs-code">	.......</span><br><span class="hljs-code">	注意:nginx.conf为nginx的配置文件,可以在nginx.conf修改nginx默认配置</span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="15-Tomcat负载均衡集群"><a href="#15-Tomcat负载均衡集群" class="headerlink" title="15.Tomcat负载均衡集群"></a>15.Tomcat负载均衡集群</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 0.准备多个tomcat</span><br><span class="hljs-code">	 tar -zxvf apache-tomcat-8.5.46.tar.gz #解压缩一个新的tomcat安装包</span><br><span class="hljs-code">	 mv apache-tomcat-8.5.46 tomcat1 			 #将名称改为tomcat1</span><br><span class="hljs-code">	 cp -r tomcat1/ tomcat2								 #复制一份</span><br><span class="hljs-code">	 cp -r tomcat1/ tomcat3                #复制一份</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 1.此时当前目录中有三个服务器,如下:</span><br><span class="hljs-code">	[root@localhost ~]# ls -l</span><br><span class="hljs-code">	总用量 12248</span><br><span class="hljs-code">	-rwxrwxrwx. 1 root root  11623939 10月 13 12:25 apache-tomcat-8.5.46.tar.gz</span><br><span class="hljs-code">	drwxr-xr-x. 9 root root       220 10月 14 21:28 tomcat1</span><br><span class="hljs-code">	drwxr-xr-x. 9 root root       220 10月 14 21:38 tomcat2</span><br><span class="hljs-code">	drwxr-xr-x. 9 root root       220 10月 14 21:38 tomcat3</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 2.修改tomcat1端口号:(伪分布式)</span><br><span class="hljs-code">		vim tomcat1/conf/server.xml,命令修改如下内容:</span><br><span class="hljs-code">		a.&lt;Server port=&quot;8001&quot; shutdown=&quot;SHUTDOWN&quot;&gt;   ---关闭端口</span><br><span class="hljs-code">		b.&lt;Connector port=&quot;8888&quot; protocol=&quot;HTTP/1.1&quot; ---http协议端口</span><br><span class="hljs-code">               connectionTimeout=&quot;20000&quot;</span><br><span class="hljs-code">               redirectPort=&quot;8443&quot; /&gt;</span><br><span class="hljs-code">   		c.&lt;Connector port=&quot;10010&quot; protocol=&quot;AJP/1.3&quot; redirectPort=&quot;8443&quot; /&gt; ---AJP协议端口</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 3.修改tomcat2端口号:(伪分布式)</span><br><span class="hljs-code">		vim tomcat2/conf/server.xml,命令修改如下内容:</span><br><span class="hljs-code">  	a.&lt;Server port=&quot;8002&quot; shutdown=&quot;SHUTDOWN&quot;&gt;</span><br><span class="hljs-code">		b.&lt;Connector port=&quot;8889&quot; protocol=&quot;HTTP/1.1&quot;</span><br><span class="hljs-code">               connectionTimeout=&quot;20000&quot;</span><br><span class="hljs-code">               redirectPort=&quot;8443&quot; /&gt;</span><br><span class="hljs-code">   	c.&lt;Connector port=&quot;10011&quot; protocol=&quot;AJP/1.3&quot; redirectPort=&quot;8443&quot; /&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 4.修改tomcat3端口号:(伪分布式)</span><br><span class="hljs-code">		vim tomcat2/conf/server.xml,命令修改如下内容:</span><br><span class="hljs-code">  	a.&lt;Server port=&quot;8003&quot; shutdown=&quot;SHUTDOWN&quot;&gt;</span><br><span class="hljs-code">		b.&lt;Connector port=&quot;8890&quot; protocol=&quot;HTTP/1.1&quot;</span><br><span class="hljs-code">               connectionTimeout=&quot;20000&quot;</span><br><span class="hljs-code">               redirectPort=&quot;8443&quot; /&gt;</span><br><span class="hljs-code">   	c.&lt;Connector port=&quot;10012&quot; protocol=&quot;AJP/1.3&quot; redirectPort=&quot;8443&quot; /&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 5.将多个tomcat启动:</span><br><span class="hljs-code">		tomcat1/bin/startup.sh </span><br><span class="hljs-code">		tomcat2/bin/startup.sh </span><br><span class="hljs-code">		tomcat3/bin/startup.sh</span><br><span class="hljs-code">    </span><br><span class="hljs-code"># 6.查看tomcat是否启动成功</span><br><span class="hljs-code">		ps -aux|grep tomcat</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191014215035543.png" alt="image-20191014215035543"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 7.在windows中分别访问tomcat,都看到主页代表启动成功:</span><br><span class="hljs-code">	</span><br><span class="hljs-code">	http://10.15.0.8:8888/</span><br><span class="hljs-code">	http://10.15.0.8:8889/</span><br><span class="hljs-code">	http://10.15.0.8:8890/</span><br><span class="hljs-code">	</span><br><span class="hljs-code">	注意:这步一定要关闭网路防火墙</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 8.将多个tomcat配置到nginx的配置文件中:</span><br><span class="hljs-code">	1).在server标签上加入如下配置:</span><br><span class="hljs-code">    upstream tomcat-servers &#123;</span><br><span class="hljs-code">      server 10.15.0.8:8888;</span><br><span class="hljs-code">      server 10.15.0.8:8889;</span><br><span class="hljs-code">      server 10.15.0.8:8890;</span><br><span class="hljs-code">    &#125;</span><br><span class="hljs-code">	2).将配置文件中 location /替换为如下配置:</span><br><span class="hljs-code">		location / &#123;</span><br><span class="hljs-code">			 proxy_pass http://tomcat-servers;</span><br><span class="hljs-code">			 proxy_redirect    off;</span><br><span class="hljs-code">			 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="hljs-code">			 proxy_set_header X-Real-IP $remote_addr;</span><br><span class="hljs-code">			 proxy_set_header Host $http_host;</span><br><span class="hljs-code">			 proxy_next_upstream http_502 http_504 error timeout invalid_header;</span><br><span class="hljs-code">		   &#125;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191014215825240.png" alt="image-20191014215825240"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 9.进入nginx安装目录sbin目录启动nginx</span><br><span class="hljs-code">	./nginx -c /usr/nginx/conf/nginx.conf</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 10.访问nginx,看到其中一个tomcat画面:</span><br><span class="hljs-code">	http://10.15.0.8/ </span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Linux.assets/image-20191014220145379.png" alt="image-20191014220145379"></p>
+<h3 id="15-1Nginx负载均衡策略"><a href="#15-1Nginx负载均衡策略" class="headerlink" title="15.1Nginx负载均衡策略"></a>15.1Nginx负载均衡策略</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.轮询</span><br><span class="hljs-code">	 说明: 默认策略,每个请求会按时间顺序逐一分配到不同的后端服务器</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 2.weight 权重</span><br><span class="hljs-code">	说明: weight参数用于指定轮询几率，weight的默认值为1,；weight的数值与访问比率成正比 </span><br><span class="hljs-code">    upstream tomcat-servers &#123;</span><br><span class="hljs-code">        server localhost:8080   weight=2;  </span><br><span class="hljs-code">        server localhost:8081;  </span><br><span class="hljs-code">        server localhost:8082   backup;  </span><br><span class="hljs-code">    &#125;</span><br><span class="hljs-code">    注意：1.权重越高分配到需要处理的请求越多。2.此策略可以与least_conn和ip_hash结合使用主要用于后端服务器性能不均</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 3.ip_hash  4%3=1 </span><br><span class="hljs-code">	　说明:指定负载均衡器按照基于客户端IP的分配方式，这个方法确保了相同的客户端的请求一直发送到相同的服务器，以保证session会话。这样每个访客都固定访问一个后端服务器，可以解决session不能跨服务器的问题。</span><br><span class="hljs-code">	　upstream tomcat-servers &#123;</span><br><span class="hljs-code">        ip_hash;    #保证每个访客固定访问一个后端服务器</span><br><span class="hljs-code">        server localhost:8080;</span><br><span class="hljs-code">        ......</span><br><span class="hljs-code">    &#125;</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 4.least_conn</span><br><span class="hljs-code">	说明: 把请求转发给连接数较少的后端服务器。轮询算法是把请求平均的转发给各个后端，使它们的负载大致相同；但是，有些请求占用的时间很长，会导致其所在的后端负载较高。这种情况下，least_conn这种方式就可以达到更好的负载均衡效果。</span><br><span class="hljs-code">	upstream tomcat-servers&#123;</span><br><span class="hljs-code">        least_conn;    #把请求转发给连接数较少的后端服务器</span><br><span class="hljs-code">        server localhost:8080;</span><br><span class="hljs-code">    &#125;</span><br><span class="hljs-code"></span><br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="16-MSM配置"><a href="#16-MSM配置" class="headerlink" title="16.MSM配置"></a>16.MSM配置</h2><blockquote>
+<p>Memcached Session Manager基于memcache缓存的session共享.即使用cacheDB存取session信息，应用服务器接受新请求将session信息保存在cache DB中，当应用服务器发生故障时，调度器会遍历寻找可用节点，分发请求，当应用服务器发现session不在本机内存时，则去cacheDB中查找，如果找到则复制到本机，这样实现session共享和高可用。</p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 0.准备一个memcache服务</span><br><br><span class="hljs-section"># 1.安装memcached</span><br><span class="hljs-code">	 yum install -y memcached</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 2.启动memcached</span><br><span class="hljs-code">	memcached -p 11211 -vvv -u root</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 3.tomcat安装的lib目录中放入与memcache整合jar包</span><br><span class="hljs-code">		cp *.jar tomcat1/lib</span><br><span class="hljs-code">		cp *.jar tomcat2/lib</span><br><span class="hljs-code">		cp *.jar tomcat3/lib</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 4.配置tomcat目录中conf目录中context.xml(所有tomcat均需要配置)</span><br><span class="hljs-code">	&lt;Context&gt;</span><br><span class="hljs-code">    &lt;Manager className=&quot;de.javakaffee.web.msm.MemcachedBackupSessionManager&quot;</span><br><span class="hljs-code">        memcachedNodes=&quot;n1:10.15.0.8:11211&quot;</span><br><span class="hljs-code">        sticky=&quot;false&quot;  </span><br><span class="hljs-code">    		sessionBackupAsync=&quot;false&quot;  </span><br><span class="hljs-code">        requestUriIgnorePattern=&quot;.*\.(ico|png|gif|jpg|css|js)$&quot;</span><br><span class="hljs-code">        transcoderFactoryClass=&quot;de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory&quot;</span><br><span class="hljs-code">        /&gt;</span><br><span class="hljs-code">	&lt;/Context&gt;</span><br><span class="hljs-code"></span><br><span class="hljs-code"># 5.放入测试项目进行测试</span><br></code></pre></td></tr></table></figure>
+
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+    <a href="/2021/06/10/Redis/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>Redis</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2021/02/10/mybatis-puls%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%92%E4%BB%B6/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>mybatis-puls插件</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2021 By CHENHUAYI
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/yichen199709">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+<script>
+	console.log('\n %c 爱你的老陈 %c ', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+
+</html>

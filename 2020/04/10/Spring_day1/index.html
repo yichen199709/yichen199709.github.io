@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>Spring(一)-</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+
+<meta name="keywords" content="Spring,service,容器,bean,">
+<meta name="description" content="Spring框架是一个集众多设计模式于一身的`开源的`、`轻量级`的`项目管理`框架">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+	<meta name="generator" content="Hexo 5.3.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										主页
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										文章
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										分类
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										标签
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										友情链接
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>CHENHUAYI</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">主页</a>
+        </li>
+        
+        <li>
+            <a href="/archives">文章</a>
+        </li>
+        
+        <li>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <a href="/links">友情链接</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/yichen199709">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/Spring">Spring</a></li>
+            
+            <li><a href="/tags/service">service</a></li>
+            
+            <li><a href="/tags/容器">容器</a></li>
+            
+            <li><a href="/tags/bean">bean</a></li>
+            
+            
+        </ul>
+        <h1>Spring(一)</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">CHENHUAYI</a></span>
+                <p>2020-04-10 08:44:33</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <h1 id="Spring1"><a href="#Spring1" class="headerlink" title="Spring1"></a>Spring1</h1><h2 id="1-Spring框架的引言"><a href="#1-Spring框架的引言" class="headerlink" title="1. Spring框架的引言"></a>1. Spring框架的引言</h2><p><code>spring</code>(春天),生于在2002年,由<code>Rod Johnson</code>创作。Spring框架是一个集众多设计模式于一身的<code>开源的</code>、<code>轻量级</code>的<code>项目管理</code>框架。致力于JAVAEE轻量级解决方案。</p>
+<p><code>轻量级解决方案</code>:提供一个以简单的、统一的、高效的方式构造整个应用，并且可以将单层框架以最佳的组合揉和在一起建立一个连贯的体系。</p>
+<hr>
+<h2 id="2-Spring框架的核心作用"><a href="#2-Spring框架的核心作用" class="headerlink" title="2.Spring框架的核心作用"></a>2.Spring框架的核心作用</h2><p>Spring 框架用来<code>管理</code><strong>[创建|使用|销毁]**项目中的组件,由于spring 框架可以帮我们生产项目中组件对象,因此也习惯称spring是一个</strong>工厂|容器**。</p>
+<blockquote>
+<p><strong><code>组件</code>:</strong> 项目中的service,dao,action,都是项目中的组件 </p>
+<p><strong><code>注意</code>:</strong> spring框架通常<strong>不管理对实体类对象创建</strong></p>
+</blockquote>
+<hr>
+<h2 id="3-第一个环境搭建"><a href="#3-第一个环境搭建" class="headerlink" title="3.第一个环境搭建"></a>3.第一个环境搭建</h2><blockquote>
+<p><code>a. 引入依赖</code></p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.3.2.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-beans<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.3.2.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.3.2.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-expression<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.3.2.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-aop<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.3.2.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-context<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.3.2.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-context-support<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.3.2.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-aspects<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.3.2.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-jdbc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.3.2.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>b. 引入配置文件</code></p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 配置文件名称: 任意名称 </span><br><span class="hljs-section"># 配置文件位置: 项目中根下任意位置</span><br><span class="hljs-section"># 配置文件的内容:</span><br><span class="hljs-code">		&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="hljs-code">    &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="hljs-code">           xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="hljs-code">           xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans </span><br><span class="hljs-code">           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd &quot;&gt;</span><br><span class="hljs-code">    &lt;/beans&gt;</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>c.创建组件</code></p>
+</blockquote>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Spring_day1.assets/image-20190704200717792.png" alt="image-20190704200717792"></p>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Spring_day1.assets/image-20190704201346305.png" alt="image-20190704201346305"></p>
+<blockquote>
+<p><code>d.工厂管理</code></p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span><br><br>  	<span class="hljs-comment">&lt;!--通过bean标签管理组件对象--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;userDAO&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.baizhi.dao.UserDAOImpl&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Spring_day1.assets/image-20190704201957168.png" alt="image-20190704201957168"></p>
+<blockquote>
+<p><code>e.启动工厂</code>测试</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		 <span class="hljs-comment">//启动工厂</span><br>       ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">&quot;spring.xml&quot;</span>);<br>			<span class="hljs-comment">//获取对象</span><br>       UserDAO userDAO = (UserDAO) context.getBean(<span class="hljs-string">&quot;userDAO&quot;</span>);<br><br>       userDAO.save(<span class="hljs-string">&quot;小黑&quot;</span>);<br>   &#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="4-Spring框架中的核心思想"><a href="#4-Spring框架中的核心思想" class="headerlink" title="4.Spring框架中的核心思想"></a>4.Spring框架中的核心思想</h2><h4 id="4-1-IOC-控制反转"><a href="#4-1-IOC-控制反转" class="headerlink" title="4.1 IOC[控制反转]"></a>4.1 IOC[控制反转]</h4><ul>
+<li><p><code>IOC**(inversion of controll)控制反转</code></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.定义</span><br><span class="hljs-code">	将对象的创建由原来(new)的方式转移到配置文件中,交给spring工厂来创建对象</span><br></code></pre></td></tr></table></figure></li>
+<li><p><code>DI(dependcy Injection)依赖注入 </code></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 1.定义</span><br><span class="hljs-code">	Spring不仅要创建对象,还要建立类与类之间的关系,因此在控制反转的基础上又提出了依赖注入的概念。</span><br></code></pre></td></tr></table></figure>
+<h4 id="4-2-AOP-面向切面编程"><a href="#4-2-AOP-面向切面编程" class="headerlink" title="4.2 AOP[面向切面编程]"></a>4.2 AOP[面向切面编程]</h4></li>
+</ul>
+<p><strong>AOP</strong>( Aspect Oriental Programing ) <strong>面向切面的编程</strong></p>
+<hr>
+<h2 id="5-SET方式注入"><a href="#5-SET方式注入" class="headerlink" title="5. SET方式注入"></a>5. SET方式注入</h2><h3 id="5-1-八种基本类型-String类型-日期类型的注入"><a href="#5-1-八种基本类型-String类型-日期类型的注入" class="headerlink" title="5.1 八种基本类型+String类型 +日期类型的注入"></a>5.1 八种基本类型+String类型 +日期类型的注入</h3><figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;zhagnsan&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;age&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;21&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;100063&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;bir&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2012/12/12&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;price&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;23.23&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Spring_day1.assets/image-20190704205040539.png" alt="image-20190704205040539"></p>
+<blockquote>
+<p><code>数组类型注入</code></p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--注入数组类型数据--&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;qqs&quot;</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>xxx<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>qqq<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>vvvv<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">array</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Spring_day1.assets/image-20190704205423667.png" alt="image-20190704205423667"></p>
+<blockquote>
+<p><code>注入引用类型和集合类型</code></p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--注入引用类型和对象--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;userDAO&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;userDAO&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;lists&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">list</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>aaa<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>bbb<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>ccc<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">list</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maps&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">map</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">entry</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;aa&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;xiaohei&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">entry</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;bb&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;xiaoming&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">entry</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;cc&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;xiaosan&quot;</span>/&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">map</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;props&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">props</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">prop</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;url&quot;</span>&gt;</span>jdbc:mysql://localhost:3306/test<span class="hljs-tag">&lt;/<span class="hljs-name">prop</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">prop</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;driver&quot;</span>&gt;</span>com.mysql.jdbc.Driver<span class="hljs-tag">&lt;/<span class="hljs-name">prop</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">prop</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;username&quot;</span>&gt;</span>hr<span class="hljs-tag">&lt;/<span class="hljs-name">prop</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">prop</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;password&quot;</span>&gt;</span>hr<span class="hljs-tag">&lt;/<span class="hljs-name">prop</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">props</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qingcheng333.oss-cn-beijing.aliyuncs.com/Spring_day1.assets/image-20190704210245083.png" alt="image-20190704210245083"></p>
+<blockquote>
+<p><code>**注意**: 引用类型使用ref属性注入,基本类型使用value属性注入</code></p>
+</blockquote>
+<hr>
+<h2 id="6-构造注入"><a href="#6-构造注入" class="headerlink" title="6.构造注入"></a>6.构造注入</h2><figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;1&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;xiaohei&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;2&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;age&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;12&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;3&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;qqs&quot;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>xxx<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>222<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>333<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">array</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">constructor-arg</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>注意:构造注入并不常用,不过在一些框架类中必须使用构造注入,这里先了解其注入语法即可。</code></p>
+</blockquote>
+<h2 id="7-自动注入"><a href="#7-自动注入" class="headerlink" title="7.自动注入"></a>7.自动注入</h2><blockquote>
+<ul>
+<li><strong>autowire=”byName”</strong></li>
+</ul>
+<blockquote>
+<p><code>根据注入的属性名与配置文件中bean的id匹配,一致则注入,不一致报错</code></p>
+</blockquote>
+<ul>
+<li><strong>autowire=”byType”</strong></li>
+</ul>
+<blockquote>
+<p><code>根据注入的属性类型,与配置文件中的类型匹配,类型一致注入(在多个实现类时,会产生歧义)</code></p>
+</blockquote>
+<p><code>注意: 无论使用以上那种方式注入都需要为属性提供set方法</code></p>
+</blockquote>
+<hr>
+<h2 id="8-bean的创建模式"><a href="#8-bean的创建模式" class="headerlink" title="8.bean的创建模式"></a>8.bean的创建模式</h2><p><strong>singleton:单例 默认</strong></p>
+<p>​          在工厂中<code>全局唯一,只创建一次</code></p>
+<p><strong>prototype: 多例</strong> </p>
+<p>​         <code>全局不唯一,每次使用都会创建一个新的对象</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">&lt;bean id=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;xxxx.userAction&quot;</span> scope=<span class="hljs-string">&quot;prototype|singleton&quot;</span>&gt;<br>		service,dao    -----&gt;  singleton<br>		struts2 action -----&gt; prototype<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>注意:在项目开发中service,dao组件单例,struts2的Action必须为:多例</code></p>
+</blockquote>
+<hr>
+<h2 id="9-bean的生产原理"><a href="#9-bean的生产原理" class="headerlink" title="9.bean的生产原理"></a>9.bean的生产原理</h2><blockquote>
+<p><code>原理</code>:   <code>反射+构造方法</code></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">UserDAOImpl userDAO = (UserDAOImpl) Class.forName(<span class="hljs-string">&quot;com.baizhi.dao.UserDAOImpl&quot;</span>).newInstance();<br>System.out.println(userDAO);<br></code></pre></td></tr></table></figure>
+<hr>
+<h2 id="10-bean的生命周期"><a href="#10-bean的生命周期" class="headerlink" title="10.bean的生命周期"></a>10.bean的生命周期</h2><blockquote>
+<ul>
+<li><p><code>何时创建</code></p>
+<p>随着工厂启动, <strong><code>所有单例bean随之创建 非单例的bean,每次使用时创建</code></strong></p>
+</li>
+<li><p><code>何时销毁</code></p>
+<p>工厂**<code>关闭,所有bean随之销毁</code>** (  注意:  <code>spring对多例bean管理松散,不会负责多例bean的销毁</code>)</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="11-bean工厂创建对象的好处"><a href="#11-bean工厂创建对象的好处" class="headerlink" title="11.bean工厂创建对象的好处"></a>11.bean工厂创建对象的好处</h2><blockquote>
+<ol>
+<li><code>使用配置文件管理java类,再生产环境中更换类的实现时不需要重新部署,修改文件即可</code></li>
+<li><code>spring默认使用单例的模式创建bean,减少内存的占用</code></li>
+<li><code>通过依赖注入建立了类与类之间的关系(使java之间关系更为清晰,方便了维护与管理)</code></li>
+</ol>
+</blockquote>
+
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+    <a href="/2020/11/03/MYSQL%E6%95%B0%E6%8D%AE%E5%BA%93/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>MYSQL数据库</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2020/04/10/Spring_day2/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>Spring(二)</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2021 By CHENHUAYI
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/yichen199709">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+<script>
+	console.log('\n %c 爱你的老陈 %c ', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+
+</html>

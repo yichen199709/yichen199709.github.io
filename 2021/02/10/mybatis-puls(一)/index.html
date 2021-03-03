@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>mybatis-puls入门简介装配-</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+
+<meta name="keywords" content="数据库,MYSQL,mybatis,mybatis-puls,">
+<meta name="description" content="mybatis-puls快速入门的基本配置">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+	<meta name="generator" content="Hexo 5.3.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										主页
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										文章
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										分类
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										标签
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										友情链接
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>CHENHUAYI</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">主页</a>
+        </li>
+        
+        <li>
+            <a href="/archives">文章</a>
+        </li>
+        
+        <li>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <a href="/links">友情链接</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/yichen199709">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/数据库">数据库</a></li>
+            
+            <li><a href="/tags/MYSQL">MYSQL</a></li>
+            
+            <li><a href="/tags/mybatis">mybatis</a></li>
+            
+            <li><a href="/tags/mybatis-puls">mybatis-puls</a></li>
+            
+            
+        </ul>
+        <h1>mybatis-puls入门简介装配</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">CHENHUAYI</a></span>
+                <p>2021-02-10 11:44:33</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <h1 id="mybatis-puls"><a href="#mybatis-puls" class="headerlink" title="mybatis-puls"></a>mybatis-puls</h1><h2 id="一·简介"><a href="#一·简介" class="headerlink" title="一·简介"></a>一·简介</h2><p>官网：<a target="_blank" rel="noopener" href="http://mp.baomidou.com/">http://mp.baomidou.com/</a></p>
+<p>参考教程：<a target="_blank" rel="noopener" href="http://mp.baomidou.com/guide/">http://mp.baomidou.com/guide/</a></p>
+<p>MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化</p>
+<p>开发、提高效率而生</p>
+<h2 id="二·特性"><a href="#二·特性" class="headerlink" title="二·特性"></a>二·特性</h2><ul>
+<li><p><strong>无侵入</strong>：只做增强不做改变，引入它不会对现有工程产生影响，如丝般顺滑</p>
+</li>
+<li><p><strong>损耗小</strong>：启动即会自动注入基本 CURD，性能基本无损耗，直接面向对象操作</p>
+</li>
+<li><p><strong>强大的</strong> <strong>CRUD</strong> <strong>操作</strong>：内置通用 Mapper、通用 Service，仅仅通过少量配置即可实现单表大部分CRUD 操作，更有强大的条件构造器，满足各类使用需求</p>
+</li>
+<li><p><strong>支持</strong> <strong>Lambda</strong> <strong>形式调用</strong>：通过 Lambda 表达式，方便的编写各类查询条件，无需再担心字段写错</p>
+</li>
+<li><p><strong>支持多种数据库</strong>：支持MySQL、MariaDB、Oracle、DB2、H2、HSQL、SQLite、Postgre、SQLServer2005、SQLServer等多种数据库</p>
+</li>
+<li><p><strong>支持主键自动生成</strong>：支持多达 4 种主键策略（内含分布式唯一 ID 生成器 - Sequence），可自由配置，完美解决主键问题</p>
+</li>
+<li><p><strong>支持</strong> <strong>XML</strong> <strong>热加载</strong>：Mapper 对应的 XML 支持热加载，对于简单的 CRUD 操作，甚至可以无 XML启动</p>
+</li>
+<li><p><strong>支持</strong> <strong>ActiveRecord</strong> <strong>模式</strong>：支持 ActiveRecord 形式调用，实体类只需继承 Model 类即可进行强大的 CRUD 操作</p>
+</li>
+<li><p><strong>支持自定义全局通用操作</strong>：支持全局通用方法注入（ Write once, use anywhere ）</p>
+</li>
+<li><p><strong>支持关键词自动转义</strong>：支持数据库关键词（order、key……）自动转义，还可自定义关键词</p>
+</li>
+<li><p><strong>内置代码生成器</strong>：采用代码或者 Maven 插件可快速生成 Mapper 、 Model 、 Service 、 Controller层代码，支持模板引擎，更有超多自定义配置等您来使用</p>
+</li>
+<li><p><strong>内置分页插件</strong>：基于 MyBatis 物理分页，开发者无需关心具体操作，配置好插件之后，写分页等同于普通 List 查询</p>
+</li>
+<li><p><strong>内置性能分析插件</strong>：可输出 Sql 语句以及其执行时间，建议开发测试时启用该功能，能快速揪出慢查询</p>
+</li>
+<li><p><strong>内置全局拦截插件</strong>：提供全表 delete 、 update 操作智能分析阻断，也可自定义拦截规则，预防误操作</p>
+</li>
+<li><p><strong>内置</strong> <strong>Sql</strong> <strong>注入剥离器</strong>：支持 Sql 注入剥离，有效预防 Sql 注入攻击</p>
+</li>
+</ul>
+<h2 id="三、添加依赖"><a href="#三、添加依赖" class="headerlink" title="三、添加依赖"></a>三、添加依赖</h2><h4 id="1、引入依赖"><a href="#1、引入依赖" class="headerlink" title="1、引入依赖"></a>1、引入依赖</h4><p>spring-boot-starter、spring-boot-starter-test</p>
+<p>添加：mybatis-plus-boot-starter、MySQL、lombok、</p>
+<p>在项目中使用Lombok可以减少很多重复代码的书写。比如说getter/setter/toString等方法的编写</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span> <br><br>	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span> <br>		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span> <br>		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span> <br>	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span> <br> 		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>		 <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">exclusions</span>&gt;</span><br> 			<span class="hljs-tag">&lt;<span class="hljs-name">exclusion</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.junit.vintage<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br> 			<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit-vintage-engine<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br> 			<span class="hljs-tag">&lt;/<span class="hljs-name">exclusion</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">exclusions</span>&gt;</span><br>	 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <br><span class="hljs-comment">&lt;!--mybatis-plus--&gt;</span><br> 	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.baomidou<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br> 		<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br> 	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <br><span class="hljs-comment">&lt;!--mysql--&gt;</span><br> 	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br> 		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br> 	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <br> <span class="hljs-comment">&lt;!--lombok用来简化实体类--&gt;</span><br> 	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br> 		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br> 	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><strong>注意：</strong>引入 MyBatis-Plus 之后请不要再次引入 MyBatis 以及 MyBatis-Spring，以避免因版本差异导致的问题</p>
+<h2 id="四、配置"><a href="#四、配置" class="headerlink" title="四、配置"></a><strong>四、配置</strong></h2><p>在 application.properties 配置文件中添加 MySQL 数据库的相关配</p>
+<h5 id="mysql5中（springboot2-1以下）"><a href="#mysql5中（springboot2-1以下）" class="headerlink" title="mysql5中（springboot2.1以下）"></a>mysql5中（springboot2.1以下）</h5><figure class="highlight properties"><table><tr><td class="code"><pre><code class="hljs properties"><br><span class="hljs-comment">#mysql数据库连接</span><br><span class="hljs-meta">spring.datasource.driver-class-name</span>=<span class="hljs-string">com.mysql.jdbc.Driver</span><br><span class="hljs-meta">spring.datasource.url</span>=<span class="hljs-string">jdbc:mysql://localhost:3306/mybatis_plus</span><br><span class="hljs-meta">spring.datasource.username</span>=<span class="hljs-string">root</span><br><span class="hljs-meta">spring.datasource.password</span>=<span class="hljs-string">123456</span><br><br></code></pre></td></tr></table></figure>
+<h5 id="mysql8中-springboot2-1及以上"><a href="#mysql8中-springboot2-1及以上" class="headerlink" title="mysql8中(springboot2.1及以上)"></a>mysql8中(springboot2.1及以上)</h5><figure class="highlight properties"><table><tr><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">spring.datasource.driver-class-name</span>=<span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br><span class="hljs-meta">spring.datasource.url</span>=<span class="hljs-string">jdbc:mysql://localhost:3306/mybatis_plus?serverTimezone=GMT%2B8</span><br><span class="hljs-meta">spring.datasource.username</span>=<span class="hljs-string">root</span><br><span class="hljs-meta">spring.datasource.password</span>=<span class="hljs-string">123456</span><br></code></pre></td></tr></table></figure>
+<p>然后基本配置实体类和数据库字段以及数据还有对应的实体类</p>
+<p><strong>对了不要忘记开启扫描mapper注解</strong></p>
+<h2 id="五·代码测试"><a href="#五·代码测试" class="headerlink" title="五·代码测试"></a>五·代码测试</h2><p>创建包 mapper 编写Mapper 接口： UserMapper.java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserMapper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseMapper</span>&lt;<span class="hljs-title">User</span>&gt; </span>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+<p>测试中：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> UserMapper userMapper; <br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSelectList</span><span class="hljs-params">()</span> </span>&#123;<br>	System.out.println((<span class="hljs-string">&quot;----- selectAll method test ------&quot;</span>));<br>    <br>	<span class="hljs-comment">//UserMapper 中的 selectList() 方法的参数为 MP 内置的条件封装器 Wrapper</span><br>	<span class="hljs-comment">//所以不填写就是无任何条件</span><br>    <br>   	List&lt;User&gt; users = userMapper.selectList(<span class="hljs-keyword">null</span>);<br> 	users.forEach(System.out::println);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>注意：IDEA在 userMapper 处报错，因为找不到注入的对象，因为类是动态创建的，但是程序可以正确的执行。为了避免报错，可以在 dao 层 的接口上添加 @Repository 注解</strong></p>
+<p>通过以上几个简单的步骤，我们就实现了 User 表的 CRUD 功能，甚至连 XML 文件都不用编写！</p>
+<h2 id="六·配置日志输出"><a href="#六·配置日志输出" class="headerlink" title="六·配置日志输出"></a>六·配置日志输出</h2><p>为了让我们直观的看到执行的sql</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><code class="hljs properties"><span class="hljs-comment">#mybatis日志</span><br><span class="hljs-meta">mybatis-plus.configuration.log-impl</span>=<span class="hljs-string">org.apache.ibatis.logging.stdout.StdOutImpl</span><br></code></pre></td></tr></table></figure>
+<p><strong>添加日志输出，这个输出是打印在控制台的</strong></p>
+
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+    <a href="/2021/02/10/mybatis-puls%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%8F%92%E4%BB%B6/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>mybatis-puls插件</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2021/02/10/Axios/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>Axios</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2021 By CHENHUAYI
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/yichen199709">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+<script>
+	console.log('\n %c 爱你的老陈 %c ', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+
+</html>
